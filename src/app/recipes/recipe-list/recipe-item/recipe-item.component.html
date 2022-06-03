@@ -1,1 +1,16 @@
-<p>recipe-item works!</p>
+<a class="list-group-item clearfix text-dark" style="cursor: pointer">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading text-success" style="font-family: cursive">{{ recipe.name }}</h4>
+
+    <div class="row">
+      <div class="col-10">
+        <p class="list-group-item-text">{{ recipe.description }}</p>
+      </div>
+      <div class="col-2">
+        <span class="pull-right">
+          <img [src]="recipe.imagePath" class="img-responsive" style="max-height: 50px" alt="">
+        </span>
+      </div>
+    </div>
+  </div>
+</a>

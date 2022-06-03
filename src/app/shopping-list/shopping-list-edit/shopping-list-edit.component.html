@@ -4,20 +4,16 @@
       <div class="row">
         <div class="col-sm-4 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" class="form-control">
+          <input type="text" id="name" class="form-control" name="name" [(ngModel)]="name">
         </div>
         <div class="col-sm-1 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control">
+          <input type="number" id="amount" name="amount" class="form-control" [(ngModel)]="amount">
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit">Add</button>
-          &nbsp;
-          <button class="btn btn-danger" type="submit">Delete</button>
-          &nbsp;
-          <button class="btn btn-primary" type="submit">Clear</button>
+          <button class="btn btn-success" type="submit" (click)="onIngredientAdded()">Add</button>
         </div>
       </div>
     </form>

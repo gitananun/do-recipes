@@ -1,0 +1,12 @@
+<div class="row mb-3">
+  <div class="col-11">
+    <a href="#" style="cursor: pointer" class="list-group-item text-success">
+      {{ ing.name }} ({{ ing.amount }})
+    </a>
+  </div>
+  <div class="col-1">
+    <div class="d-flex">
+      <button class="btn btn-danger" type="submit" (click)="onIngredientDeleted()">Delete</button>
+    </div>
+  </div>
+</div>
