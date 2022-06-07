@@ -10,14 +10,17 @@ export class ShoppingListEditComponent implements OnInit {
   @Output()
   ingredientCreated: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
 
-  name: string = '';
-  amount: number = 0;
-
   constructor() {}
 
   ngOnInit(): void {}
 
-  onIngredientAdded() {
-    this.ingredientCreated.emit({ name: this.name, amount: this.amount });
+  onIngredientAdded(
+    nameInput: HTMLInputElement,
+    amountInput: HTMLInputElement
+  ) {
+    this.ingredientCreated.emit({
+      name: nameInput.value,
+      amount: +amountInput.value,
+    });
   }
 }

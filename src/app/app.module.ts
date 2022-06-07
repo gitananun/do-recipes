@@ -1,3 +1,4 @@
+import { HeaderWrapperComponent } from './layout/header/header-wrapper/header-wrapper.component';
 import { IngredientItem } from './shopping-list/ingredient-item/ingredient-item.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +12,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
+import { HeaderNavLinkComponent } from './layout/header/header-nav-link/header-nav-link.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/sh
     ShoppingListComponent,
     ShoppingListEditComponent,
     IngredientItem,
+    HeaderWrapperComponent,
+    HeaderNavLinkComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
