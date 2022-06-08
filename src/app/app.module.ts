@@ -1,3 +1,4 @@
+import { HoverDirective } from './directives/hover/hover.directive';
 import { HeaderWrapperComponent } from './layout/header/header-wrapper/header-wrapper.component';
 import { IngredientItem } from './shopping-list/ingredient-item/ingredient-item.component';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,8 @@ import { HeaderNavLinkComponent } from './layout/header/header-nav-link/header-n
     IngredientItem,
     HeaderWrapperComponent,
     HeaderNavLinkComponent,
+
+    HoverDirective,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
