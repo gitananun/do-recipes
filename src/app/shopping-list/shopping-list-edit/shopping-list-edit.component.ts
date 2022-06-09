@@ -1,26 +1,27 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { LoggingService } from './../../services/logging.service';
+import { ShoppingListService } from './../../services/shopping-list.service';
+import { Component } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 
 @Component({
   selector: 'app-shopping-list-edit',
   templateUrl: './shopping-list-edit.component.html',
   styleUrls: ['./shopping-list-edit.component.css'],
+  providers: [LoggingService],
 })
-export class ShoppingListEditComponent implements OnInit {
-  @Output()
-  ingredientCreated: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
-
-  constructor() {}
-
-  ngOnInit(): void {}
+export class ShoppingListEditComponent {
+  constructor(
+    private shoppingListService: ShoppingListService,
+    private loggingService: LoggingService
+  ) {}
 
   onIngredientAdded(
     nameInput: HTMLInputElement,
     amountInput: HTMLInputElement
   ) {
-    this.ingredientCreated.emit({
-      name: nameInput.value,
-      amount: +amountInput.value,
-    });
+    let ing = new Ingredient(nameInput.value, +amountInput.value);
+
+    this.loggingService.logNewRecordAdded(ing.name);
+    this.shoppingListService.addNewIngredient(ing);
   }
 }

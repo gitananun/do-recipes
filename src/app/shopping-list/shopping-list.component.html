@@ -1,10 +1,9 @@
 <div class="row">
   <div class="col-xs-10">
-    <app-shopping-list-edit (ingredientCreated)="onIngredientAdded($event)"></app-shopping-list-edit>
+    <app-shopping-list-edit></app-shopping-list-edit>
     <hr>
     <ul class="list-group">
-      <app-ingredient-item *ngFor="let ingredient of ingredients" [ingredient]="ingredient"
-        (ingredientDeleted)="onIngredientDeleted($event)"></app-ingredient-item>
+      <app-ingredient-item *ngFor="let ingredient of ingredients" [ingredient]="ingredient"></app-ingredient-item>
     </ul>
     <button class="btn btn-primary" *ngIf="ingredients.length > 0" type="submit"
       (click)="onIngredientsClear()">Clear</button>

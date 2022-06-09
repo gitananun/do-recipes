@@ -1,18 +1,19 @@
+import { ShoppingListService } from './../../services/shopping-list.service';
 import { Ingredient } from './../../shared/ingredient.model';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ingredient-item',
   templateUrl: './ingredient-item.component.html',
+  providers: [],
 })
 export class IngredientItem {
   @Input('ingredient')
   ing!: Ingredient;
 
-  @Output()
-  ingredientDeleted: EventEmitter<any> = new EventEmitter();
+  constructor(private shoppingListService: ShoppingListService) {}
 
   onIngredientDeleted() {
-    this.ingredientDeleted.emit(this.ing.name);
+    this.shoppingListService.deleteIngredient(this.ing.name);
   }
 }

@@ -1,4 +1,6 @@
-import { HoverDirective } from './directives/hover/hover.directive';
+import { ShoppingListService } from './services/shopping-list.service';
+import { ButtonHoverDirective } from './directives/button-hover.directive';
+import { HoverDirective } from './directives/hover.directive';
 import { HeaderWrapperComponent } from './layout/header/header-wrapper/header-wrapper.component';
 import { IngredientItem } from './shopping-list/ingredient-item/ingredient-item.component';
 import { NgModule } from '@angular/core';
@@ -30,9 +32,10 @@ import { HeaderNavLinkComponent } from './layout/header/header-nav-link/header-n
     HeaderNavLinkComponent,
 
     HoverDirective,
+    ButtonHoverDirective,
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
