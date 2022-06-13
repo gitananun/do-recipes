@@ -1,3 +1,5 @@
+import { LayoutService } from './services/layout.service';
+import { RecipeService } from './services/recipe.service';
 import { ShoppingListService } from './services/shopping-list.service';
 import { ButtonHoverDirective } from './directives/button-hover.directive';
 import { HoverDirective } from './directives/hover.directive';
@@ -35,7 +37,7 @@ import { HeaderNavLinkComponent } from './layout/header/header-nav-link/header-n
     ButtonHoverDirective,
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeService, LayoutService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

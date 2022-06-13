@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { LayoutService } from './services/layout.service';
+import { Component, OnInit } from '@angular/core';
 
 export type HeaderTabType = 'recipes' | 'shopping-list';
 @Component({
@@ -6,11 +7,15 @@ export type HeaderTabType = 'recipes' | 'shopping-list';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'recipe-book';
   activeTab: HeaderTabType = 'recipes';
 
-  tabChanged(event: string) {
-    this.activeTab = event as HeaderTabType;
+  constructor(private layoutService: LayoutService) {}
+
+  ngOnInit(): void {
+    this.layoutService.tabChanged.subscribe((tabName: HeaderTabType) => {
+      this.activeTab = tabName;
+    });
   }
 }

@@ -1,21 +1,30 @@
+import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 
 export class ShoppingListService {
-  ingredients: Ingredient[] = [
-    new Ingredient('Meat', 3),
-    new Ingredient('Potatoes', 2),
-  ];
+  ingredientsChanged: EventEmitter<Ingredient[]> = new EventEmitter<
+    Ingredient[]
+  >();
+
+  ingredients: Ingredient[] = [];
 
   addNewIngredient(ing: Ingredient) {
     this.ingredients.push(ing);
+    this.ingredientsChanged.emit(this.ingredients);
+  }
+
+  addIngredients(ings: Ingredient[]) {
+    this.ingredients.push(...ings);
+    this.ingredientsChanged.emit(this.ingredients);
   }
 
   deleteIngredient(name: string) {
-    let index = this.ingredients.findIndex((ingr) => ingr.name === name);
-    if (index >= 0) this.ingredients.splice(index, 1);
+    this.ingredients = this.ingredients.filter((ingr) => ingr.name != name);
+    this.ingredientsChanged.emit(this.ingredients);
   }
 
   resetIngredients() {
-    this.ingredients.splice(0, this.ingredients.length);
+    this.ingredients = [];
+    this.ingredientsChanged.emit(this.ingredients);
   }
 }

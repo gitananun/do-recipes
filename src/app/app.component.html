@@ -1,6 +1,6 @@
 <div class="container">
   <app-header-wrapper>
-    <app-header (tabChanged)="tabChanged($event)"></app-header>
+    <app-header></app-header>
   </app-header-wrapper>
   <div class="container">
     <app-recipes *ngIf="activeTab == 'recipes'; else shopping_list"></app-recipes>
