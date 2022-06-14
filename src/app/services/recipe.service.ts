@@ -4,8 +4,6 @@ import { Recipe } from '../recipes/recipe.model';
 import { slugify } from '../shared/string.utils';
 
 export class RecipeService {
-  recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
-
   private recipes: Recipe[] = [
     new Recipe(
       'Manti',

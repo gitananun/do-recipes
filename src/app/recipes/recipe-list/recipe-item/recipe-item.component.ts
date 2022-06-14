@@ -1,3 +1,4 @@
+import { slugify } from './../../../shared/string.utils';
 import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
@@ -10,7 +11,11 @@ export class RecipeItemComponent implements OnInit {
   @Input()
   recipe!: Recipe;
 
+  slug: string = '';
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.slug = slugify(this.recipe.name);
+  }
 }
