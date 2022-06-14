@@ -3,9 +3,6 @@
     <app-header></app-header>
   </app-header-wrapper>
   <div class="container">
-    <app-recipes *ngIf="activeTab == 'recipes'; else shopping_list"></app-recipes>
-    <ng-template #shopping_list>
-      <app-shopping-list></app-shopping-list>
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

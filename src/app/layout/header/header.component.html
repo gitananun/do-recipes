@@ -1,13 +1,13 @@
 <div class="d-flex">
-  <a class="navbar-brand" href="#">RECIPEBook</a>
+  <a class="navbar-brand" routerLink="/">RECIPEBook</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <app-header-nav-link href="#" name="Recipes" (click)="onTabChanged('recipes')"></app-header-nav-link>
-      <app-header-nav-link href="#" name="Shopping List" (click)="onTabChanged('shopping-list')"></app-header-nav-link>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/recipes">Recipes</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="/shopping">Shopping List</a>
     </div>
   </div>
 </div>

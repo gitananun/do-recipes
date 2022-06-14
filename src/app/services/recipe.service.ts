@@ -1,6 +1,7 @@
 import { Ingredient } from './../shared/ingredient.model';
 import { EventEmitter } from '@angular/core';
 import { Recipe } from '../recipes/recipe.model';
+import { slugify } from '../shared/string.utils';
 
 export class RecipeService {
   recipeSelected: EventEmitter<Recipe> = new EventEmitter<Recipe>();
@@ -22,5 +23,9 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(slug: string) {
+    return this.getRecipes().find((r: Recipe) => slugify(r.name) === slug);
   }
 }

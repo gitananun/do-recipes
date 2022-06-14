@@ -1,4 +1,4 @@
-import { LayoutService } from './services/layout.service';
+import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './services/recipe.service';
 import { ShoppingListService } from './services/shopping-list.service';
 import { ButtonHoverDirective } from './directives/button-hover.directive';
@@ -17,7 +17,9 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
-import { HeaderNavLinkComponent } from './layout/header/header-nav-link/header-nav-link.component';
+import { RecipeComponent } from './recipes/recipe/recipe.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { HeaderNavLinkComponent } from './layout/header/header-nav-link/header-n
     ShoppingListEditComponent,
     IngredientItem,
     HeaderWrapperComponent,
-    HeaderNavLinkComponent,
 
     HoverDirective,
     ButtonHoverDirective,
+    RecipeComponent,
+    WelcomeComponent,
+    PageNotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule],
-  providers: [ShoppingListService, RecipeService, LayoutService],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

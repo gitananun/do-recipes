@@ -1,3 +1,4 @@
+import { slugify } from './../../shared/string.utils';
 import { ShoppingListService } from './../../services/shopping-list.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
@@ -9,10 +10,13 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe!: Recipe;
+  slug!: string;
 
   constructor(private shoppingListService: ShoppingListService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.slug = slugify(this.recipe.name);
+  }
 
   addToShoppingList() {
     this.shoppingListService.addIngredients(this.recipe.ingredients);
