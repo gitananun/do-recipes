@@ -1,3 +1,5 @@
+import { AuthGuard } from './guards/auth-guard.service';
+import { AuthService } from './services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './services/recipe.service';
 import { ShoppingListService } from './services/shopping-list.service';
@@ -41,7 +43,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

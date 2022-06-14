@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -10,7 +11,11 @@ const appRoutes: Route[] = [
   { path: '', component: WelcomeComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:slug', component: RecipeComponent },
-  { path: 'shopping', component: ShoppingListComponent },
+  {
+    path: 'shopping',
+    canActivate: [AuthGuard],
+    component: ShoppingListComponent,
+  },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
