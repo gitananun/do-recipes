@@ -1,5 +1,4 @@
 import { Ingredient } from './../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
 import { Recipe } from '../recipes/recipe.model';
 import { slugify } from '../shared/string.utils';
 

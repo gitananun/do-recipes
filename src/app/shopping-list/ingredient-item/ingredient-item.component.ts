@@ -8,12 +8,16 @@ import { Component, Input } from '@angular/core';
   providers: [],
 })
 export class IngredientItem {
-  @Input('ingredient')
-  ing!: Ingredient;
+  @Input() index!: number;
+  @Input('ingredient') ing!: Ingredient;
 
   constructor(private shoppingListService: ShoppingListService) {}
 
   onIngredientDeleted() {
-    this.shoppingListService.deleteIngredient(this.ing.name);
+    this.shoppingListService.deleteIngredient(this.index);
+  }
+
+  onEditIngredient() {
+    this.shoppingListService.startEditing.next(this.index);
   }
 }

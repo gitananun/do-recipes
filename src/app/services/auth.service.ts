@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  loggedIn: boolean = false;
+  loggedIn: boolean = true;
 
   isAuthenticated(): Promise<boolean> {
     return new Promise((resolve, reject) => {
