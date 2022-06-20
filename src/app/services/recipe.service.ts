@@ -42,4 +42,13 @@ export class RecipeService {
     if (recipeIndex >= 0) this.recipes[recipeIndex] = newRecipe;
     this.recipesChanged.next(this.recipes.slice());
   }
+
+  deleteRecipe(slug: string) {
+    const recipeIndex: number = this.recipes.findIndex(
+      (r: Recipe) => slugify(r.name) === slug
+    );
+
+    if (recipeIndex >= 0) this.recipes.splice(recipeIndex, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
