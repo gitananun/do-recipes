@@ -5,12 +5,12 @@
 
     <div class="row">
       <div class="col-10">
-        <p class="list-group-item-text">{{ recipe.description }}</p>
+        <p class="list-group-item-text">{{ recipe.description | shorten:50 }}</p>
       </div>
       <div class="col-2">
-        <span class="pull-right">
+        <!-- <span class="pull-right">
           <img [src]="recipe.imagePath" class="img-responsive" style="max-height: 50px" alt="">
-        </span>
+        </span> -->
       </div>
     </div>
   </div>

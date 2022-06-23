@@ -1,3 +1,4 @@
+import { ShortenPipe } from './shared/shorten.pipe';
 import { AuthGuard } from './guards/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +11,7 @@ import { IngredientItem } from './shopping-list/ingredient-item/ingredient-item.
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -23,6 +25,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipesHttpService } from './http/recipes-http.service';
 
 @NgModule({
   declarations: [
@@ -43,8 +46,16 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     PageNotFoundComponent,
     RecipeStartComponent,
     RecipeEditComponent,
+
+    ShortenPipe,
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [ShoppingListService, RecipeService, AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
