@@ -1,3 +1,4 @@
+import { RecipesHttpService } from './../../http/recipes-http.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { Recipe } from './../recipe.model';
 import { RecipeService } from './../../services/recipe.service';
@@ -18,7 +19,8 @@ export class RecipeEditComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private recipesHttpService: RecipesHttpService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,8 @@ export class RecipeEditComponent implements OnInit {
     if (this.editMode)
       this.recipeService.updateRecipe(this.slug, this.recipeForm.value);
     else this.recipeService.addRecipe(this.recipeForm.value);
+
+    this.recipesHttpService.store();
 
     this.router.navigate(['../'], { relativeTo: this.route });
   }
